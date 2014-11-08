@@ -32,13 +32,13 @@ Metalsmith(__dirname)
     .use(drafts())
     .use(ignore(['.DS_Store', '*/.DS_Store']))
     .use(sass({
-        outputDir:    'css/',
+        outputDir:    'assets/',
         includePaths: ['bower_components/foundation/scss']
     }))
     .use(fingerprint({
-        pattern: 'css/main.css'
+        pattern: 'assets/main.css'
     }))
-    .use(ignore(['css/main.css']))
+    .use(ignore(['assets/main.css']))
     .use(collections({
         posts: {
             pattern: 'post/*',

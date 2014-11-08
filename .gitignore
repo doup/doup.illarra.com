@@ -5,6 +5,6 @@ pids
 *.pid
 *.seed
 build
-.cache
+.awspublish-*
 node_modules
 bower_components

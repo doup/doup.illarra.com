@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "jade": "~1.7.0",
-    "level": "^0.18.0",
     "metalsmith": "~1.0.1",
     "metalsmith-branch": "0.0.4",
     "metalsmith-collections": "~0.6.0",
@@ -31,8 +30,9 @@
     "metalsmith-serve": "0.0.1",
     "metalsmith-templates": "~0.6.0",
     "metalsmith-watch": "~0.1.1",
-    "readdirp": "^1.1.0",
-    "s3-sync": "^0.6.0"
+    "gulp": "~3.8.10",
+    "gulp-awspublish": "0.0.23",
+    "gulp-awspublish-router": "~0.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

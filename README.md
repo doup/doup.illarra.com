@@ -17,7 +17,7 @@ Build static files:
 
 Deploy to S3:
 
-    $ node deploy
+    $ gulp deploy
 
 #Configure S3
 
