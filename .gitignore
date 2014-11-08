@@ -1,8 +1,10 @@
+s3.json
 logs
 *.log
 pids
 *.pid
 *.seed
 build
+.cache
 node_modules
 bower_components
