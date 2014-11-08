@@ -38,6 +38,7 @@ Metalsmith(__dirname)
     .use(fingerprint({
         pattern: 'css/main.css'
     }))
+    .use(ignore(['css/main.css']))
     .use(collections({
         posts: {
             pattern: 'post/*',
