@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="author" content="Asier Illarramendi")
+        title #{title} | Metalsmith Pagetitle
+        link(href="/#{fingerprint['css/main.css']}" rel="stylesheet" type="text/css")
+        link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css")
+    body
+        ul
+            li: a(href="/") Inicio
+            li: a(href="/page/about") About
+        div.row
+            div.large-12.columns
+                block contents

@@ -1,0 +1,11 @@
+extends ./layout.jade
+
+block contents
+    h1= title
+    article!= contents
+
+    ul
+        if previous
+            li: a(href='/'+ previous.path) <- #{previous.title}
+        if next
+            li: a(href='/'+ next.path) #{next.title} ->

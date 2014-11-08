@@ -1,0 +1,9 @@
+extends ./layout.jade
+
+block contents
+    ul
+        each post in collections.posts
+            li
+                a(href=post.path)
+                    h1= post.title
+                //-article!= post.contents
