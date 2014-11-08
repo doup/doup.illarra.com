@@ -23,4 +23,4 @@ Declaración de intenciones para este, mi primer, blog:
 })();
 ```
 
-Para quien este interesado, [este blog](https://github.com/doup/doup.github.io) esta generado con [Metalsmith](http://www.metalsmith.io); si te gusta trabajar con [Gulp](http://gulpjs.com) echale un vistazo.
+Para quien este interesado, [este blog](https://github.com/doup/doup.illarra.com) esta generado con [Metalsmith](http://www.metalsmith.io); si te gusta trabajar con [Gulp](http://gulpjs.com) echale un vistazo.
