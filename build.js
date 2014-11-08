@@ -1,6 +1,7 @@
 'use strict';
 
 var Metalsmith  = require('metalsmith');
+var branch      = require('metalsmith-branch');
 var collections = require('metalsmith-collections');
 var copy        = require('metalsmith-copy');
 var drafts      = require('metalsmith-drafts');
@@ -46,10 +47,18 @@ Metalsmith(__dirname)
     }))
     .use(metallic())
     .use(markdown())
-    .use(permalinks({
-        pattern: ':date/:title',
-        date:    'YYYY/MM'
-    }))
+    .use(branch('post/*')
+        .use(permalinks({
+            pattern: ':date/:title',
+            date:    'YYYY/MM'
+        }))
+    )
+    .use(branch('page/*')
+        .use(permalinks({
+            pattern: 'page/:title',
+            date:    'YYYY/MM'
+        }))
+    )
     .use(templates('jade'))
     .use(serve({ port: 1337 }))
     .use(watch())
