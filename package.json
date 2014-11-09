@@ -9,10 +9,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://doup@github.com/doup/doup.github.io.git"
+    "url": "https://doup@github.com/doup/doup.illarra.com.git"
   },
   "bugs": {
-    "url": "https://github.com/doup/doup.github.io/issues"
+    "url": "https://github.com/doup/doup.illarra.com/issues"
   },
   "devDependencies": {
     "jade": "~1.7.0",
