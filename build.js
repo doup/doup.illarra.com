@@ -5,7 +5,9 @@ var branch      = require('metalsmith-branch');
 var collections = require('metalsmith-collections');
 var copy        = require('metalsmith-copy');
 var drafts      = require('metalsmith-drafts');
-var fingerprint = require('metalsmith-fingerprint')
+var excerpts    = require('metalsmith-excerpts');
+var feed        = require('metalsmith-feed');
+var fingerprint = require('metalsmith-fingerprint');
 var ignore      = require('metalsmith-ignore');
 var markdown    = require('metalsmith-markdown');
 var metallic    = require('metalsmith-metallic');
@@ -29,6 +31,13 @@ function debug(files, ms, done) {
 }
 
 Metalsmith(__dirname)
+    .metadata({
+        site: {
+            title:  'doup',
+            url:    'http://doup.illarra.com',
+            author: 'Asier Illarramendi'
+        }
+    })
     .use(drafts())
     .use(ignore(['.DS_Store', '*/.DS_Store']))
     .use(sass({
@@ -60,7 +69,9 @@ Metalsmith(__dirname)
             date:    'YYYY/MM'
         }))
     )
+    .use(excerpts())
     .use(templates('jade'))
+    .use(feed({ collection: 'posts' }))
     .use(serve({ port: 1337 }))
     .use(watch())
     .build(function (err, files) {

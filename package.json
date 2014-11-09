@@ -32,7 +32,9 @@
     "metalsmith-watch": "~0.1.1",
     "gulp": "~3.8.10",
     "gulp-awspublish": "0.0.23",
-    "gulp-awspublish-router": "~0.1.0"
+    "gulp-awspublish-router": "~0.1.0",
+    "metalsmith-feed": "0.0.5",
+    "metalsmith-excerpts": "~1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
