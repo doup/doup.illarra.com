@@ -2,3 +2,12 @@
 
 @import "foundation-settings";
 @import "foundation-custom";
+
+.menu {
+    padding: 0;
+
+    li {
+        display: inline-block;
+        margin-right: 1em;
+    }
+}

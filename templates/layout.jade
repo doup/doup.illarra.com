@@ -6,11 +6,12 @@ html(lang="es")
         title #{title} | Metalsmith Pagetitle
         link(rel="alternate" type="application/rss+xml" title="RSS" href="http://doup.illarra.com/rss.xml")
         link(href="/#{fingerprint['assets/main.css']}" rel="stylesheet" type="text/css")
-        link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css")
+        link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css")
     body
-        ul
-            li: a(href="/") Inicio
-            li: a(href="/page/about") About
         div.row
             div.large-12.columns
+                ul.menu
+                    li: a(href="/") Inicio
+                    li: a(href="/page/about") About
+
                 block contents
