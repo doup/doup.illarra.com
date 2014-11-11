@@ -1,27 +1,28 @@
 'use strict';
 
 // Gulp
-var browserSync      = require('browser-sync');
+var gulp             = require('gulp');
 var awspublish       = require('gulp-awspublish');
 var awspublishRouter = require("gulp-awspublish-router");
+var browserSync      = require('browser-sync');
 var creds            = require('./s3.json');
-var gulp             = require('gulp');
 
 // Metalsmith
-var Metalsmith  = require('metalsmith');
-var branch      = require('metalsmith-branch');
-var collections = require('metalsmith-collections');
-var copy        = require('metalsmith-copy');
-var drafts      = require('metalsmith-drafts');
-var excerpts    = require('metalsmith-excerpts');
-var feed        = require('metalsmith-feed');
-var fingerprint = require('metalsmith-fingerprint');
-var ignore      = require('metalsmith-ignore');
-var markdown    = require('metalsmith-markdown');
-var metallic    = require('metalsmith-metallic');
-var permalinks  = require('metalsmith-permalinks');
-var sass        = require('metalsmith-sass');
-var templates   = require('metalsmith-templates');
+var Metalsmith   = require('metalsmith');
+var branch       = require('metalsmith-branch');
+var collections  = require('metalsmith-collections');
+var copy         = require('metalsmith-copy');
+var drafts       = require('metalsmith-drafts');
+var excerpts     = require('metalsmith-excerpts');
+var feed         = require('metalsmith-feed');
+var fileMetadata = require('metalsmith-filemetadata');
+var fingerprint  = require('metalsmith-fingerprint');
+var ignore       = require('metalsmith-ignore');
+var markdown     = require('metalsmith-markdown');
+var metallic     = require('metalsmith-metallic');
+var permalinks   = require('metalsmith-permalinks');
+var sass         = require('metalsmith-sass');
+var templates    = require('metalsmith-templates');
 
 function debug(files, ms, done) {
     /*
@@ -64,6 +65,10 @@ gulp.task('build', function (done) {
         }))
         .use(metallic())
         .use(markdown())
+        .use(fileMetadata([
+            { pattern: 'post/*', preserve: true, metadata: { template: 'post.jade' } },
+            { pattern: 'page/*', preserve: true, metadata: { template: 'page.jade' } }
+        ]))
         .use(branch('post/*')
             .use(permalinks({
                 pattern: ':date/:title',
@@ -135,7 +140,7 @@ gulp.task('reload', ['build'], function () {
 gulp.task('serve', function () {
     browserSync({
         server: {
-            baseDir: "./build"
+            baseDir: './build'
         }
     });
 });
