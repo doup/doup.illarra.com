@@ -1,12 +1,94 @@
 'use strict';
 
-var gulp             = require('gulp');
+// Gulp
+var browserSync      = require('browser-sync');
 var awspublish       = require('gulp-awspublish');
 var awspublishRouter = require("gulp-awspublish-router");
 var creds            = require('./s3.json');
+var gulp             = require('gulp');
 
-gulp.task('deploy', function() {
+// Metalsmith
+var Metalsmith  = require('metalsmith');
+var branch      = require('metalsmith-branch');
+var collections = require('metalsmith-collections');
+var copy        = require('metalsmith-copy');
+var drafts      = require('metalsmith-drafts');
+var excerpts    = require('metalsmith-excerpts');
+var feed        = require('metalsmith-feed');
+var fingerprint = require('metalsmith-fingerprint');
+var ignore      = require('metalsmith-ignore');
+var markdown    = require('metalsmith-markdown');
+var metallic    = require('metalsmith-metallic');
+var permalinks  = require('metalsmith-permalinks');
+var sass        = require('metalsmith-sass');
+var templates   = require('metalsmith-templates');
 
+function debug(files, ms, done) {
+    /*
+    for (var key in files) {
+        console.log(key);
+        console.log(files[key]);
+        console.log();
+    }
+    */
+    //console.log(files);
+    console.log(ms);
+    done();
+}
+
+gulp.task('build', function (done) {
+    Metalsmith(__dirname)
+        .metadata({
+            site: {
+                title:  'doup',
+                url:    'http://doup.illarra.com',
+                author: 'Asier Illarramendi'
+            }
+        })
+        .use(drafts())
+        .use(ignore(['.DS_Store', '*/.DS_Store']))
+        .use(sass({
+            outputDir:    'assets/',
+            includePaths: ['bower_components/foundation/scss']
+        }))
+        .use(fingerprint({
+            pattern: 'assets/main.css'
+        }))
+        .use(ignore(['assets/main.css']))
+        .use(collections({
+            posts: {
+                pattern: 'post/*',
+                sortBy:  'date',
+                reverse: true
+            }
+        }))
+        .use(metallic())
+        .use(markdown())
+        .use(branch('post/*')
+            .use(permalinks({
+                pattern: ':date/:title',
+                date:    'YYYY/MM'
+            }))
+        )
+        .use(branch('page/*')
+            .use(permalinks({
+                pattern: 'page/:title',
+                date:    'YYYY/MM'
+            }))
+        )
+        .use(excerpts())
+        .use(templates('jade'))
+        .use(feed({ collection: 'posts' }))
+        .build(function (err, files) {
+            if (err) {
+                throw err;
+            }
+
+            done();
+        });
+});
+
+gulp.task('deploy', ['build'], function () {
     // create a new publisher
     var publisher = awspublish.create({
         key:    creds.access,
@@ -45,3 +127,21 @@ gulp.task('deploy', function() {
         .pipe(publisher.cache())
         .pipe(awspublish.reporter());
 });
+
+gulp.task('reload', ['build'], function () {
+    browserSync.reload();
+});
+
+gulp.task('serve', function () {
+    browserSync({
+        server: {
+            baseDir: "./build"
+        }
+    });
+});
+
+gulp.task('watch', function () {
+    gulp.watch(['templates/**/*', 'src/**/*'], ['reload']);
+});
+
+gulp.task('default', ['build', 'serve', 'watch']);

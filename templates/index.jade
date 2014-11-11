@@ -1,7 +1,7 @@
 extends ./layout.jade
 
 block contents
-    ul
+    ul.posts
         each post in collections.posts
             li
                 a(href=post.path)

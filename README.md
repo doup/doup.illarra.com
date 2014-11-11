@@ -1,5 +1,10 @@
 #Init
 
+Make sure you have [Bower](http://bower.io) and [Gulp](http://gulpjs.com) installed:
+
+    $ npm install -g bower
+    $ npm install -g gulp
+
 Install dependencies:
 
     $ npm install
@@ -11,9 +16,9 @@ Fill Amazon S3 configuration:
 
 #Develop
 
-Build static files:
+Build static files and run dev server:
 
-    $ node build
+    $ gulp
 
 Deploy to S3:
 
