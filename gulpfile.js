@@ -1,6 +1,7 @@
 'use strict';
 
 // Gulp
+var argv             = require('minimist')(process.argv.slice(2));
 var gulp             = require('gulp');
 var awspublish       = require('gulp-awspublish');
 var awspublishRouter = require("gulp-awspublish-router");
@@ -45,6 +46,15 @@ gulp.task('build', function (done) {
                 url:    'http://doup.illarra.com',
                 author: 'Asier Illarramendi'
             }
+        })
+        .use(function (files, ms, done) {
+            if (argv.dev) {
+                for (var file in files) {
+                    files[file].draft = false;
+                }
+            }
+
+            done();
         })
         .use(drafts())
         .use(ignore(['.DS_Store', '*/.DS_Store']))
