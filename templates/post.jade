@@ -1,11 +1,16 @@
 extends ./layout.jade
 
 block contents
-    h1= title
-    article!= contents
+    div.row
+        div.large-9.columns
+            article
+                h1= title
+                time(datetime=date.toISOString())= prettyDate
+                div.body!= contents
 
-    ul
-        if previous
-            li: a(href='/'+ previous.path) <- #{previous.title}
-        if next
-            li: a(href='/'+ next.path) #{next.title} ->
+        //-div.large-3.columns
+            ul
+                if previous
+                    li: a(href='/'+ previous.path) <- #{previous.title}
+                if next
+                    li: a(href='/'+ next.path) #{next.title} ->

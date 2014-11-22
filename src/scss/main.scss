@@ -3,8 +3,27 @@
 @import "foundation-settings";
 @import "foundation-custom";
 
+a {
+    color: #439182;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: #2f4843;
+}
+
+time {
+    font-size: rem-calc(16);
+    color: #bdc5c3;
+}
+
 .menu {
     padding: 0;
+
+    a {
+        color: #2f4843;
+    }
 
     li {
         display: inline-block;
@@ -12,10 +31,59 @@
     }
 }
 
+.logo {
+    width: 60px;
+    border-radius: 8px;
+    padding: 2px;
+    border: 1px solid #eee;
+}
+
 .posts {
+    margin: 0;
     padding: 0;
 
     li {
         list-style: none;
+
+        h1 {
+            font-size: rem-calc(24);
+            margin-bottom: 0;
+        }
+
+        time {
+            display: block;
+            margin-bottom: rem-calc(15);
+        }
+    }
+}
+
+article {
+    font-size: rem-calc(20);
+    color: #57534a;
+    margin-bottom: 5em;
+
+    h1 {
+        font-size: rem-calc(28);
+        margin-bottom: rem-calc(-2);
+    }
+
+    time {
+        display: block;
+        margin-bottom: rem-calc(20);
+    }
+
+    h2 {
+        font-size: rem-calc(24);
+        margin: rem-calc(30) 0 rem-calc(5) 0;
+    }
+
+    code.hljs {
+        font-size: 0.9em;
+        background-color: #ecf3f2;
+        border-radius: 3px;
+    }
+
+    p {
+        margin: 0 0 rem-calc(10) 0;
     }
 }

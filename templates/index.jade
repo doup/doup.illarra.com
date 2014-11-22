@@ -1,9 +1,10 @@
 extends ./layout.jade
 
 block contents
-    ul.posts
-        each post in collections.posts
-            li
-                a(href=post.path)
-                    h1= post.title
-                //-article!= post.contents
+    div.row: div.large-12.columns
+        ul.posts
+            each post in collections.posts
+                li
+                    a(href=post.path)
+                        h1= post.title
+                    time(datetime=post.date.toISOString())= post.prettyDate

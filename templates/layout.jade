@@ -3,15 +3,23 @@ html(lang="es")
     head
         meta(charset="UTF-8")
         meta(name="author" content="Asier Illarramendi")
-        title #{title} | Metalsmith Pagetitle
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title #{title} | doup.illarra.com
         link(rel="alternate" type="application/rss+xml" title="RSS" href="http://doup.illarra.com/rss.xml")
         link(href="/#{fingerprint['assets/main.css']}" rel="stylesheet" type="text/css")
         link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css")
+        //- Typekit
+        script(src="//use.typekit.net/kyl0rkz.js")
+        script try{Typekit.load();}catch(e){}
+
     body
         div.row
             div.large-12.columns
                 ul.menu
+                    li: a(href="/")
+                        img.logo(src='/assets/avatar.png')
                     li: a(href="/") Blog
-                    //-li: a(href="/page/about") About
+                    li: a(href="https://github.com/doup") GitHub
+                    li: a(href="https://twitter.com/aillarra") Twitter
 
-                block contents
+        block contents

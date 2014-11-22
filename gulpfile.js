@@ -70,6 +70,28 @@ gulp.task('build', function (done) {
             { pattern: 'page/*', preserve: true, metadata: { template: 'page.jade' } }
         ]))
         .use(branch('post/*')
+            .use(function (files, ms, done) {
+                var months = {
+                    0:  'Enero',
+                    1:  'Febrero',
+                    2:  'Marzo',
+                    3:  'Abril',
+                    4:  'Mayo',
+                    5:  'Junio',
+                    6:  'Julio',
+                    7:  'Agosto',
+                    8:  'Septiembre',
+                    9:  'Octubre',
+                    10: 'Noviembre',
+                    11: 'Diciembre'
+                };
+
+                for (var file in files) {
+                    files[file].prettyDate = months[files[file].date.getMonth()] +' '+ files[file].date.getFullYear();
+                }
+
+                done();
+            })
             .use(permalinks({
                 pattern: ':date/:title',
                 date:    'YYYY/MM'
@@ -139,6 +161,7 @@ gulp.task('reload', ['build'], function () {
 
 gulp.task('serve', function () {
     browserSync({
+        notify: false,
         server: {
             baseDir: './build'
         }
