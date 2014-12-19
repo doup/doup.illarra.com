@@ -7,6 +7,8 @@ var awspublish       = require('gulp-awspublish');
 var awspublishRouter = require("gulp-awspublish-router");
 var browserSync      = require('browser-sync');
 var creds            = require('./s3.json');
+var imagemin         = require('gulp-imagemin');
+var imageResize      = require('gulp-image-resize');
 
 // Metalsmith
 var Metalsmith   = require('metalsmith');
@@ -38,7 +40,22 @@ function debug(files, ms, done) {
     done();
 }
 
-gulp.task('build', function (done) {
+process.on('uncaughtException', function(err) {
+    console.log(err);
+});
+
+gulp.task('images', function () {
+    gulp.src('src/assets/images/*')
+        .pipe(imageResize({
+            imageMagick: true,
+            width: 720,
+            upscale: false
+        }))
+        .pipe(imagemin())
+        .pipe(gulp.dest('build/assets/images'));
+});
+
+gulp.task('build', ['images'], function (done) {
     Metalsmith(__dirname)
         .metadata({
             site: {
@@ -57,7 +74,7 @@ gulp.task('build', function (done) {
             done();
         })
         .use(drafts())
-        .use(ignore(['.DS_Store', '*/.DS_Store']))
+        .use(ignore(['.DS_Store', '*/.DS_Store', 'assets/images/*']))
         .use(sass({
             outputDir:    'assets/',
             includePaths: ['bower_components/foundation/scss']
