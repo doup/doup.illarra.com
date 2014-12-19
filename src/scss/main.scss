@@ -41,6 +41,7 @@ time {
 .posts {
     margin: 0;
     padding: 0;
+    margin-bottom: 5em;
 
     li {
         list-style: none;
@@ -56,6 +57,32 @@ time {
             margin-bottom: rem-calc(15);
             margin-top: rem-calc(2);
         }
+    }
+}
+
+.footer {
+    color: #ddd;
+    font-style: italic;
+
+    a {
+        color: #ddd;
+
+        &:hover {
+            color: #ddd;
+        }
+    }
+
+    hr {
+        border-top-width: 0px;
+        border-style: solid;
+        border-color: #ddd;
+        margin: rem-calc(10) 0 0 0;
+        width: 50px;
+    }
+
+    p {
+        margin-top: rem-calc(5);
+        margin-bottom: 3em;
     }
 }
 

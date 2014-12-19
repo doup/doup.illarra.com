@@ -25,3 +25,9 @@ html(lang="es")
                     li: a(href="https://twitter.com/aillarra") Twitter
 
         block contents
+
+        div.row.footer
+            div.large-12.columns
+                hr
+                - var year = (new Date()).getFullYear()
+                p <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>, 2014!{ year != '2014' ? '–' + year : '' }, Asier Illarramendi
