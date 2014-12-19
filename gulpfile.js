@@ -44,18 +44,7 @@ process.on('uncaughtException', function(err) {
     console.log(err);
 });
 
-gulp.task('images', function () {
-    gulp.src('src/assets/images/*')
-        .pipe(imageResize({
-            imageMagick: true,
-            width: 720,
-            upscale: false
-        }))
-        .pipe(imagemin())
-        .pipe(gulp.dest('build/assets/images'));
-});
-
-gulp.task('build', ['images'], function (done) {
+gulp.task('metalsmith', function (done) {
     Metalsmith(__dirname)
         .metadata({
             site: {
@@ -140,6 +129,17 @@ gulp.task('build', ['images'], function (done) {
 
             done();
         });
+});
+
+gulp.task('build', ['metalsmith'], function () {
+    return gulp.src('src/assets/images/*')
+        .pipe(imageResize({
+            imageMagick: true,
+            width: 720,
+            upscale: false
+        }))
+        .pipe(imagemin())
+        .pipe(gulp.dest('build/assets/images'));
 });
 
 gulp.task('deploy', ['build'], function () {
