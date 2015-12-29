@@ -2,5 +2,5 @@
     "access": "",
     "secret": "",
     "bucket": "",
-    "region": ""
+    "region": "eu-west-1"
 }

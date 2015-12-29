@@ -1,7 +1,7 @@
 ---
-title: Nisaba, una biblioteca online
-date: 2014-11-07
-draft: true
+title: Preparar libros y articulos con Nisaba
+date: 2015-06-01
+draft: false
 ---
 
 - Kontzeptua, commonmark -> ...

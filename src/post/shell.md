@@ -1,9 +1,14 @@
 ---
-title: Creando aplicaciones para el escritorio con Node.js
-date: 2014-11-07
-draft: true
+title: "Electron: aplicaciones para escritorio con tecnologias web"
+date: 2015-04-24
+draft: false
 ---
 
-- syncthing client + famo.us
-- atom-shell de GitHub
-- node-webkit de Intel
+- Trackr
+- http://electron.atom.io/ atom-shell de GitHub (node-webkit de Intel, brackets-shell de Adobe)
+- io.js
+- ES6
+- React
+- IPC Renderer/Main
+- gulp 4.0
+- extra: jsop libreria guapua

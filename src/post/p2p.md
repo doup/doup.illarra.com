@@ -16,6 +16,8 @@ network -> p2p node.js
 gui -> atom-shell
 tracker -> tor hidden service
 
+- syncthing client + famo.us
+
 WebRTC
 http://www.webrtc.org/
 http://peerjs.com/
