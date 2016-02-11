@@ -134,7 +134,6 @@ gulp.task('metalsmith', function (done) {
 gulp.task('build', ['metalsmith'], function () {
     return gulp.src('src/assets/images/*')
         .pipe(imageResize({
-            imageMagick: true,
             width: 720,
             upscale: false
         }))

@@ -1,7 +1,7 @@
 ---
 title: "Electron: aplicaciones para escritorio con tecnologias web"
 date: 2015-04-24
-draft: false
+draft: true
 ---
 
 - Trackr
