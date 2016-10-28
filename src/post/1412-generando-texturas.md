@@ -9,7 +9,7 @@ Entre los objetivos que me he marcado para los próximos meses esta aprender [Dj
 
 Esta vez he hecho dos versiones: una en [Python](https://github.com/doup/sapo.py), otra en [JavaScript](https://github.com/doup/sapo.js)… más abajo intentare explicar las diferencias. :-)
 
-##Los shaders
+## Los shaders
 
 Las texturas procedurales son imágenes que se definen de forma matemática. La imagen se genera calculando el color de cada pixel mediante una función (_shader_) que tiene como entrada la posición del pixel y otros parámetros. Con un poco de paciencia se pueden generar cosas interesantes como estas:
 
@@ -39,7 +39,7 @@ function render(
 
 Teniendo como entrada la posición del pixel (`s` y `t`), dos colores (`c1` y `c2`) y el valor del punto medio (`mid`) se decide que color tiene que tener cada pixel. Básicamente el _shader_ dibujara una mitad de un color y la otra mitad de otro color. Puedes ver el resultado [aquí](http://doup.github.io/sapo.js/#halves.js).
 
-###Unos ejemplos básicos
+### Unos ejemplos básicos
 
 - [Degradado](http://doup.github.io/sapo.js/#gradient.js) mezclando dos colores según la coordenada `s`.
 - Interpolación [lineal](http://doup.github.io/sapo.js/#lerp.js) y [smoothstep](http://doup.github.io/sapo.js/#smoothstep.js). Smoothstep es una tipo de interpolación muy útil para eliminar el [_aliasing_](http://es.wikipedia.org/wiki/Antialiasing) y definir transiciones suaves entre colores.
@@ -48,13 +48,13 @@ Teniendo como entrada la posición del pixel (`s` y `t`), dos colores (`c1` y `c
 
 Como ves, son _shaders_ sencillos y no hacen justicia a lo que se puede llegar a hacer. Si quieres ver imágenes/experimentos realmente flipantes te recomiendo visitar la [web de Iñigo Quilez](http://www.iquilezles.org).
 
-##sapo.py
+## sapo.py
 
 Bueno, este es mi primer proyecto en Python, [si miras el código](https://github.com/doup/sapo.py) veras que todavía es un poco básico y que no esta del todo bien ordenado, no es muy solido, faltan tests, etc. La idea es ir mejorando el código a medida que vaya aprendiendo más sobre Python, a ver si con el tiempo puedo hacer uso de funcionalidades más avanzadas del lenguaje.
 
 En `sapo.py` se pueden conectar diferentes nodos (_shaders_) para crear imágenes más interesantes. Cada nodo tiene `n` _inputs_ y un _output_, siendo estos _inputs_/_outputs_ (puertos) de diferentes tipos: float, integer, bool, color, point… Así pues, al igual que en muchos softwares de 3D se pueden crear arboles conectando los puertos de diferentes nodos.
 
-###Checker distorsionado
+### Checker distorsionado
 
 ![Checker distorsionado](/assets/images/sapo-nodes-wavedistort.png)
 
@@ -73,7 +73,7 @@ wave.get_port('color').connect(checker)
 canvas.render(wave)
 ```
 
-###Circulo con radio variable
+### Circulo con radio variable
 
 ![Circulo con radio variable](/assets/images/sapo-nodes-circle.png)
 
@@ -92,7 +92,7 @@ circle.get_port('radius').connect(radius)
 canvas.render(checker)
 ```
 
-##sapo.js
+## sapo.js
 
 No estaba en los planes pero después de empezar a jugar con Python no he podido evitar la tentación de [crear una versión en JavaScript](http://doup.github.io/sapo.js). Las dos diferencias principales respecto a `sapo.py` son que es interactivo y que **no** permite conectar diferentes nodos. La parte interactiva lo hace ideal para enseñar fundamentos básicos de programación de forma visual. Si quieres ver el código lo puedes encontrar en [GitHub](https://github.com/doup/sapo.js).
 

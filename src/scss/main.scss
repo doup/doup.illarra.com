@@ -14,11 +14,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 time {
-    font-size: rem-calc(16);
+    font-size: rem-calc(13.6);
     color: #bdc5c3;
 }
 
 .menu {
+    font-size: rem-calc(14);
     padding: 0;
 
     a {
@@ -47,15 +48,15 @@ time {
         list-style: none;
 
         h1 {
-            font-size: rem-calc(24);
+            font-size: rem-calc(20.4);
             margin-bottom: 0;
             line-height: 1.1em;
         }
 
         time {
             display: block;
-            margin-bottom: rem-calc(15);
-            margin-top: rem-calc(2);
+            margin-bottom: rem-calc(12.75);
+            margin-top: rem-calc(1.7);
         }
     }
 }
@@ -76,41 +77,42 @@ time {
         border-top-width: 0px;
         border-style: solid;
         border-color: #ddd;
-        margin: rem-calc(10) 0 0 0;
+        margin: rem-calc(8.5) 0 0 0;
         width: 50px;
     }
 
     p {
-        margin-top: rem-calc(5);
+        font-size: rem-calc(14);
+        margin-top: rem-calc(4.25);
         margin-bottom: 3em;
     }
 }
 
 article {
-    font-size: rem-calc(20);
+    font-size: rem-calc(17); //
     color: #57534a;
     margin-bottom: 5em;
 
     h1 {
-        font-size: rem-calc(28);
-        margin-bottom: rem-calc(-2);
+        font-size: rem-calc(23.8);
+        margin-bottom: rem-calc(-1.7);
         line-height: 1.1em;
     }
 
     time {
         display: block;
-        margin-bottom: rem-calc(20);
-        margin-top: rem-calc(5);
+        margin-bottom: rem-calc(17);
+        margin-top: rem-calc(4.25);
     }
 
     h2 {
-        font-size: rem-calc(24);
-        margin: rem-calc(30) 0 rem-calc(5) 0;
+        font-size: rem-calc(20.4);
+        margin: rem-calc(25.5) 0 rem-calc(4.25) 0;
     }
 
     h3 {
-        font-size: rem-calc(20);
-        margin: rem-calc(20) 0 rem-calc(5) 0;
+        font-size: rem-calc(17);
+        margin: rem-calc(17) 0 rem-calc(4.25) 0;
     }
 
     code {
@@ -126,11 +128,12 @@ article {
 
     code.hljs {
         font-size: rem-calc(14);
+        line-height: 1.5em;
         background-color: #ecf3f2;
         border-radius: 3px;
     }
 
     p {
-        margin: 0 0 rem-calc(10) 0;
+        margin: 0 0 rem-calc(8.5) 0;
     }
 }

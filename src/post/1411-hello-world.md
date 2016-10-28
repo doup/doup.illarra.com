@@ -24,6 +24,6 @@ Declaración de intenciones para este, mi primer, blog:
 
 Espero que sea un fructífero año y pueda compartir mis descubrimientos. :-)
 
-##Las tripas del blog
+## Las tripas del blog
 
 Para quien este interesado, este blog esta generado con [Metalsmith](http://www.metalsmith.io) un generador de websites estáticos que funciona sobre [Node.js](http://nodejs.org). El `build` y el `deploy` se gestionan con [Gulp](http://gulpjs.com) un sistema de compilación basado en _streams_; si conoces Grunt y quieres algo más rápido y explicito deberías de echarle un vistazo. En cuanto al alojamiento, el blog esta en Amazon S3, nada del otro mundo pero muy conveniente para un website estático. Si quieres saber más puedes mirar [el repositorio](https://github.com/doup/doup.illarra.com), lo importante se encuentra en `gulpfile.js`. Ya veras que es bastante sencillo.
